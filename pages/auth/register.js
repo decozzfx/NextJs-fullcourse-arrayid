@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import cookies from 'next-cookies'
+import Link from 'next/link'
 
 
 export async function getServerSideProps(ctx){ // agar redirect langsung tanpa render component sebelumnya dulu, pre-render // server side rendering
@@ -44,6 +45,7 @@ const Register = () => {
 
     return (
         <div>
+            <Link href={'/auth/login'}><a >Login</a></Link>
             <h1>Register</h1>
             <div>Status : {status} </div>
             <form onSubmit={registerHandler}>

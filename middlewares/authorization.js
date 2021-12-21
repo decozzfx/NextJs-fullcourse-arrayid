@@ -11,7 +11,7 @@ export default function authorization(req, res){
         ]
     
         if(authType !== 'Bearer') return res.status(401).end() // middleware type
-        return jwt.verify(authToken,'blablabla', (err, decoded) => {
+        return jwt.verify(authToken,process.env.JWT_SECRET, (err, decoded) => {
             if (err) return res.status(401).end()
             return resolve(decoded)
         })

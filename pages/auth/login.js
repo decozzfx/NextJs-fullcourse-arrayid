@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Cookie from 'js-cookie'
 import Router from 'next/router'
 import cookies from 'next-cookies'
+import Link from 'next/link'
 
 export async function getServerSideProps(ctx){ // agar redirect langsung tanpa render component sebelumnya dulu, pre-render // server side rendering
     const allCookies = cookies(ctx)         // akses get cookie di server side , menerima cookie dari client
@@ -48,6 +49,7 @@ export default function Login(){
 
     return (
         <div>
+            <Link href={'/auth/register'}><a>Register</a></Link>
             <h1>Login</h1>
             <div>
                 {status}
