@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
 import cookies from 'next-cookies'
+import Nav from '../../components/Nav'
 
 export async function getServerSideProps(ctx){
     const {token} = cookies(ctx)
@@ -38,7 +39,7 @@ const Create = (props) => {
             })
             if(!res.ok) return setStatus('error')
             const req = await res.json()
-            setStatus('succes')
+            setStatus('succes') 
             console.info(req)
             Router.push('/posts')
 
@@ -49,6 +50,7 @@ const Create = (props) => {
     }
     return (
         <div>
+            <Nav/>
             <h1>Create</h1>
             {status}
             <form onSubmit={createHandler}>
